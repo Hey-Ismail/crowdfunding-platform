@@ -146,7 +146,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="https://github.com/Hey-Ismail/crowdfunding-platform"
+                  href="https://github.com"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-slate-900 border border-slate-800 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-slate-700 hover:text-white transition"
@@ -157,7 +157,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 pt-2">
                 <a 
-                  href="https://github.com/Hey-Ismail" 
+                  href="https://github.com" 
                   target="_blank" 
                   rel="noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-slate-700 transition"
@@ -190,7 +190,7 @@ const Footer = () => {
       <div className="border-t border-slate-900 bg-slate-950/90 py-6">
         <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 text-xs text-slate-500">
           <div>
-            © {new Date().getFullYear()} FundPulse Crowdfunding Engine. Built for Ismail's Crowdfunding Platform.
+            © {new Date().getFullYear()} FundPulse Crowdfunding Engine. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-slate-400 transition">Privacy Policy</a>

@@ -90,7 +90,7 @@ const Navbar = () => {
           </Link>
 
           <a
-            href="https://github.com/Hey-Ismail/crowdfunding-platform"
+            href="https://github.com"
             target="_blank"
             rel="noreferrer"
             className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition-all hover:from-emerald-400 hover:to-teal-400 hover:shadow-lg hover:shadow-emerald-500/25 active:scale-95"
@@ -159,7 +159,7 @@ const Navbar = () => {
             </div>
 
             <a
-              href="https://github.com/Hey-Ismail/crowdfunding-platform"
+              href="https://github.com"
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}
