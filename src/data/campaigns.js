@@ -8,22 +8,6 @@ export const CAMPAIGN_CATEGORIES = [
 
 export const MOCK_CAMPAIGNS = [
   {
-    id: "eco-drone-01",
-    title: "AeroPlant: Autonomous Solar Reforestation Drone",
-    shortDescription: "An AI-guided autonomous drone system capable of planting 5,000 native trees per day in devastated ecosystems.",
-    category: "Eco & Green",
-    raisedAmount: 142500,
-    targetAmount: 150000,
-    backersCount: 1840,
-    daysLeft: 6,
-    image: "/images/campaigns/eco-drone.jpg",
-    creatorName: "Dr. Elena Rostova",
-    creatorAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
-    badge: "Almost Funded",
-    badgeColor: "emerald",
-    featured: true
-  },
-  {
     id: "smart-ring-02",
     title: "PulseRing X: Next-Gen Continuous Vital Tracking",
     shortDescription: "Medical-grade biometric intelligence packed into a sleek, 7-day titanium ring with zero subscription fees.",
@@ -40,6 +24,54 @@ export const MOCK_CAMPAIGNS = [
     featured: true
   },
   {
+    id: "quantum-headset-05",
+    title: "NeuraVision: Quantum Neural Spatial AR Headset",
+    shortDescription: "Next-generation ultra-lightweight spatial computing headset powered by neural eye-tracking and holographic projection.",
+    category: "Tech & AI",
+    raisedAmount: 275000,
+    targetAmount: 250000,
+    backersCount: 2940,
+    daysLeft: 18,
+    image: "/images/campaigns/quantum-headset.jpg",
+    creatorName: "NeuraLab Systems",
+    creatorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    badge: "Most Backed",
+    badgeColor: "indigo",
+    featured: true
+  },
+  {
+    id: "ocean-cleaner-06",
+    title: "OceanGuard: Autonomous Solar Cleanup Vessel",
+    shortDescription: "Self-navigating solar-powered vessel engineered to remove plastic waste and microplastics from coastal waters.",
+    category: "Eco & Green",
+    raisedAmount: 210000,
+    targetAmount: 180000,
+    backersCount: 2480,
+    daysLeft: 11,
+    image: "/images/campaigns/ocean-cleaner.jpg",
+    creatorName: "Blue Ocean Vanguard",
+    creatorAvatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+    badge: "Fully Funded",
+    badgeColor: "emerald",
+    featured: true
+  },
+  {
+    id: "eco-drone-01",
+    title: "AeroPlant: Autonomous Solar Reforestation Drone",
+    shortDescription: "An AI-guided autonomous drone system capable of planting 5,000 native trees per day in devastated ecosystems.",
+    category: "Eco & Green",
+    raisedAmount: 142500,
+    targetAmount: 150000,
+    backersCount: 1840,
+    daysLeft: 6,
+    image: "/images/campaigns/eco-drone.jpg",
+    creatorName: "Dr. Elena Rostova",
+    creatorAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+    badge: "Almost Funded",
+    badgeColor: "emerald",
+    featured: true
+  },
+  {
     id: "indie-game-03",
     title: "Aetheria: Chronicles of the Floating Realm",
     shortDescription: "An immersive open-world action RPG featuring hand-painted landscapes, reactive weather systems, and co-op storytelling.",
@@ -50,7 +82,7 @@ export const MOCK_CAMPAIGNS = [
     daysLeft: 21,
     image: "/images/campaigns/indie-game.jpg",
     creatorName: "Arcane Light Studios",
-    creatorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    creatorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
     badge: "Staff Pick",
     badgeColor: "purple",
     featured: true
@@ -66,7 +98,7 @@ export const MOCK_CAMPAIGNS = [
     daysLeft: 9,
     image: "/images/campaigns/clean-water.jpg",
     creatorName: "Global Clean Waters Initiative",
-    creatorAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    creatorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
     badge: "Community Favorite",
     badgeColor: "amber",
     featured: true

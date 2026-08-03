@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Rocket, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
-import { GithubIcon, TwitterIcon, LinkedinIcon } from '@/components/BrandIcons';
+import { GithubIcon, TwitterIcon, LinkedinIcon, FacebookIcon } from '@/components/BrandIcons';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -83,7 +83,7 @@ const Footer = () => {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/campaigns" className="hover:text-emerald-400 transition">
-                  Featured Campaigns
+                  Top Campaigns
                 </Link>
               </li>
               <li>
@@ -138,10 +138,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Developer & Connect */}
+          {/* Developer & Social Profiles */}
           <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Developer & Socials
+              Connect & Socials
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
@@ -149,35 +149,52 @@ const Footer = () => {
                   href="https://github.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-slate-900 border border-slate-800 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-slate-700 hover:text-white transition"
+                  className="inline-flex items-center gap-2 rounded-xl bg-slate-900 border border-slate-800 px-3 py-2 text-xs font-semibold text-slate-200 hover:border-emerald-500/50 hover:text-white transition shadow-sm"
                 >
                   <GithubIcon className="h-4 w-4 text-emerald-400" />
                   <span>GitHub Repository</span>
                 </a>
               </li>
-              <li className="flex items-center gap-3 pt-2">
+              <li className="flex items-center gap-2.5 pt-2">
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition hover:scale-110 shadow-sm"
+                  aria-label="LinkedIn Profile"
+                  title="LinkedIn"
+                >
+                  <LinkedinIcon className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition hover:scale-110 shadow-sm"
+                  aria-label="Facebook Profile"
+                  title="Facebook"
+                >
+                  <FacebookIcon className="h-4 w-4" />
+                </a>
                 <a 
                   href="https://github.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-slate-700 transition"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition hover:scale-110 shadow-sm"
                   aria-label="GitHub Profile"
+                  title="GitHub"
                 >
                   <GithubIcon className="h-4 w-4" />
                 </a>
                 <a 
-                  href="#" 
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-slate-700 transition"
+                  href="https://x.com" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition hover:scale-110 shadow-sm"
                   aria-label="Twitter Profile"
+                  title="Twitter (X)"
                 >
                   <TwitterIcon className="h-4 w-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-slate-700 transition"
-                  aria-label="LinkedIn Profile"
-                >
-                  <LinkedinIcon className="h-4 w-4" />
                 </a>
               </li>
             </ul>
@@ -205,3 +222,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
