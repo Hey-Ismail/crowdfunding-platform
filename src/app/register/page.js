@@ -1,9 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { signUp } from '@/lib/auth-client';
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [role, setRole] = useState('backer'); // 'backer' | 'creator'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,16 +14,48 @@ export default function RegisterPage() {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (isSuccess) {
+      const t = setTimeout(() => router.push('/login'), 1500);
+      return () => clearTimeout(t);
+    }
+  }, [isSuccess, router]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!agreeTerms) return;
+    if (!agreeTerms) {
+      setError('You must agree to the Terms of Service and Privacy Policy to continue.');
+      return;
+    }
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+    setError(null);
+
+    try {
+      const { data, error } = await signUp.email({
+        email,
+        password,
+        name: email.split('@')[0],
+      });
+
+      if (error) {
+        console.error('signUp returned error:', error);
+        const message = error?.message || error?.status || error?.reason || (typeof error === 'string' ? error : null) || JSON.stringify(error) || 'Unable to create account. Please try again.';
+        setError(message);
+        return;
+      }
+
       setIsSuccess(true);
-    }, 1200);
+    } catch (err) {
+      console.error('signUp threw exception:', err);
+      const message = err?.message || (typeof err === 'string' ? err : null) || JSON.stringify(err) || 'Something went wrong. Please try again.';
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
 
   // Password strength calculation
   const getPasswordStrength = () => {
@@ -37,7 +72,7 @@ export default function RegisterPage() {
 
       {/* Ambient Neon Glow Spheres */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-100 h-100 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
       {/* Main Card Container */}
       <div className="relative w-full max-w-md space-y-8 z-10">
@@ -67,13 +102,13 @@ export default function RegisterPage() {
             <div className="py-8 text-center space-y-4">
               <h3 className="text-xl font-bold text-white">Welcome to FundPulse!</h3>
               <p className="text-xs text-slate-300">
-                Your account has been created successfully.
+                Your account has been created successfully. Redirecting you to the sign in page...
               </p>
               <Link
-                href="/campaigns"
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 px-6 py-3 text-xs font-bold text-slate-950 hover:opacity-90 transition shadow-lg shadow-emerald-500/30"
+                href="/login"
+                className="mt-4 inline-flex items-center justify-center rounded-xl bg-linear-to-r from-emerald-400 to-teal-400 px-6 py-3 text-xs font-bold text-slate-950 hover:opacity-90 transition shadow-lg shadow-emerald-500/30"
               >
-                Explore Campaigns
+                Go to Login
               </Link>
             </div>
           ) : (
@@ -88,7 +123,7 @@ export default function RegisterPage() {
                     type="button"
                     onClick={() => setRole('backer')}
                     className={`py-2.5 rounded-xl text-xs font-semibold transition-all ${role === 'backer'
-                      ? 'bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
+                      ? 'bg-linear-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
                       : 'text-slate-400 hover:text-white'
                       }`}
                   >
@@ -98,7 +133,7 @@ export default function RegisterPage() {
                     type="button"
                     onClick={() => setRole('creator')}
                     className={`py-2.5 rounded-xl text-xs font-semibold transition-all ${role === 'creator'
-                      ? 'bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
+                      ? 'bg-linear-to-r from-emerald-400 to-teal-400 text-slate-950 font-bold shadow-md shadow-emerald-500/20'
                       : 'text-slate-400 hover:text-white'
                       }`}
                   >
@@ -141,6 +176,12 @@ export default function RegisterPage() {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
+
+                {error && (
+                  <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-xs font-medium text-rose-300">
+                    {error}
+                  </div>
+                )}
 
                 {/* Email Field */}
                 <div className="space-y-2">
@@ -241,4 +282,5 @@ export default function RegisterPage() {
       </div>
     </div>
   );
+
 }
