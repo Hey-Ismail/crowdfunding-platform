@@ -6,5 +6,7 @@ export { default as HowItWorksSection } from './HowItWorksSection';
 export { default as TrustSection } from './TrustSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';
+export { default as UserAvatar } from './UserAvatar';
 export { default as Footer } from './Footer';
 export { GithubIcon, TwitterIcon, LinkedinIcon } from './BrandIcons';
+
