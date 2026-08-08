@@ -8,5 +8,7 @@ export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as CTASection } from './CTASection';
 export { default as UserAvatar } from './UserAvatar';
 export { default as Footer } from './Footer';
+export { default as DashboardSidebar } from './dashboardSidebar';
+export { default as UserSidebar } from './UserSidebar';
 export { GithubIcon, TwitterIcon, LinkedinIcon } from './BrandIcons';
 

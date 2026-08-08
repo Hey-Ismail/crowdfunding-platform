@@ -1,5 +1,4 @@
 import "./globals.css";
-import { Navbar, Footer } from "@/components";
 
 export const metadata = {
   title: "FundPulse | Empowering Future Innovations Through Crowdfunding",
@@ -14,11 +13,7 @@ export default function RootLayout({ children }) {
       className="h-full antialiased dark"
     >
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-slate-950 font-sans">
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

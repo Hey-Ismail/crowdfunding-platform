@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Sparkles, Menu, X, ArrowRight, Rocket, LogOut } from 'lucide-react';
+import { Sparkles, Menu, X, ArrowRight, Rocket, LogOut, LayoutDashboard } from 'lucide-react';
 import { GithubIcon } from '@/components/BrandIcons';
 import { authClient, useSession } from '@/lib/auth-client';
 import UserAvatar from '@/components/UserAvatar';
@@ -78,18 +78,15 @@ const Navbar = () => {
           >
             Explore Campaigns
           </Link>
-          <a
-            href="#how-it-works"
-            className="text-sm font-medium text-slate-300 transition-colors hover:text-emerald-400"
-          >
-            How it Works
-          </a>
-          <a
-            href="#stats"
-            className="text-sm font-medium text-slate-300 transition-colors hover:text-emerald-400"
-          >
-            Platform Impact
-          </a>
+          {user && (
+            <Link
+              href={user.role === 'creator' ? "/dashboard" : "/dashboard/user"}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 transition-colors hover:text-emerald-400"
+            >
+              <LayoutDashboard className="h-4 w-4" />
+              Dashboard
+            </Link>
+          )}
         </nav>
 
         {/* Action Buttons */}
@@ -163,22 +160,19 @@ const Navbar = () => {
               <span>Explore Campaigns</span>
               <ArrowRight className="h-4 w-4 text-slate-400" />
             </Link>
-            <a
-              href="#how-it-works"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between rounded-xl bg-slate-800/50 px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
-            >
-              <span>How it Works</span>
-              <ArrowRight className="h-4 w-4 text-slate-400" />
-            </a>
-            <a
-              href="#stats"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between rounded-xl bg-slate-800/50 px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
-            >
-              <span>Platform Impact</span>
-              <ArrowRight className="h-4 w-4 text-slate-400" />
-            </a>
+            {user && (
+              <Link
+                href={user.role === 'creator' ? "/dashboard" : "/dashboard/user"}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between rounded-xl bg-slate-800/50 px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <LayoutDashboard className="h-4 w-4 text-emerald-400" />
+                  Dashboard
+                </span>
+                <ArrowRight className="h-4 w-4 text-slate-400" />
+              </Link>
+            )}
 
             <div className="my-2 h-px bg-slate-800"></div>
 
